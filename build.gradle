@@ -48,6 +48,8 @@ dependencies {
 
 	// Test
 
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.testcontainers:mysql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	//testImplementation 'org.springframework.security:spring-security-test'
 	testCompileOnly 'org.projectlombok:lombok'
@@ -57,4 +59,16 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+	reports {
+		junitXml.required = true
+		html.required = true
+	}
+
+	testLogging {
+		events "failed"
+		exceptionFormat "full"
+		showExceptions true
+		showCauses true
+		showStackTraces true
+	}
 }
