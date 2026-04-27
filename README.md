@@ -61,7 +61,7 @@
 - Testcontainers
 - MySQL 8.4 기반 Repository / Integration / Concurrency Test
 
-## 실행 방법
+## 실행 방법(검토자 빠른 실행 가이드)
 
 본 프로젝트는 Docker Compose를 통해 Spring Boot  애플리케이션과 MySQL을 함께 실행할 수 있도록 구성했습니다.
 Docker Desktop을 사용하는 경우 별도 설치 없이 실행 가능합니다.
@@ -113,7 +113,33 @@ Root Password: root_password
 http://localhost:8080/swagger-ui/index.html
 ```
 
-### 6. 종료
+### 6. 테스트 실행
+
+테스트는 JUnit 5, Spring Boot Test, MockMvc, AssertJ, Mockito, Testcontainers, MySQL 8.4 기반으로 구성되어 있습니다.
+
+테스트 실행 전 Docker Desktop이 실행 중이어야 합니다.
+
+Linux / macOS 환경:
+
+```bash
+./gradlew clean test
+```
+
+Windows PowerShell 환경:
+
+```powershell
+.\gradlew.bat clean test
+```
+
+정상 통과 시 다음과 같은 결과가 출력됩니다.
+
+```text
+BUILD SUCCESSFUL
+```
+
+---
+
+### 7. 종료
 ```bash
 docker compose down
 ```
