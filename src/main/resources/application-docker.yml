@@ -4,3 +4,6 @@ spring:
     username: enrollment_user
     password: enrollment_password
     driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 30000
+      initialization-fail-timeout: 60000
